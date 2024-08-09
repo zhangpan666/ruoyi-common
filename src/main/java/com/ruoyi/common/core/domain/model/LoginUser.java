@@ -9,7 +9,7 @@ import java.util.Set;
 
 /**
  * 登录用户身份权限
- * 
+ *
  * @author ruoyi
  */
 public class LoginUser implements UserDetails
@@ -20,6 +20,13 @@ public class LoginUser implements UserDetails
      * 用户ID
      */
     private Long userId;
+
+
+    /**
+     * 平台ID
+     */
+    private Long platformId;
+
 
     /**
      * 部门ID
@@ -81,10 +88,19 @@ public class LoginUser implements UserDetails
         this.permissions = permissions;
     }
 
-    public LoginUser(Long userId, Long deptId, SysUser user, Set<String> permissions)
+    public LoginUser(Long userId, Long deptId, Long platformId, SysUser user, Set<String> permissions)
     {
         this.userId = userId;
         this.deptId = deptId;
+        this.platformId = platformId;
+        this.user = user;
+        this.permissions = permissions;
+    }
+
+    public LoginUser(Long userId, Long platformId, SysUser user, Set<String> permissions)
+    {
+        this.userId = userId;
+        this.platformId = platformId;
         this.user = user;
         this.permissions = permissions;
     }
@@ -144,7 +160,7 @@ public class LoginUser implements UserDetails
 
     /**
      * 指定用户是否解锁,锁定的用户无法进行身份验证
-     * 
+     *
      * @return
      */
     @JSONField(serialize = false)
@@ -156,7 +172,7 @@ public class LoginUser implements UserDetails
 
     /**
      * 指示是否已过期的用户的凭据(密码),过期的凭据防止认证
-     * 
+     *
      * @return
      */
     @JSONField(serialize = false)
@@ -168,7 +184,7 @@ public class LoginUser implements UserDetails
 
     /**
      * 是否可用 ,禁用的用户不能身份验证
-     * 
+     *
      * @return
      */
     @JSONField(serialize = false)
@@ -256,6 +272,14 @@ public class LoginUser implements UserDetails
     public void setUser(SysUser user)
     {
         this.user = user;
+    }
+
+    public Long getPlatformId() {
+        return platformId;
+    }
+
+    public void setPlatformId(Long platformId) {
+        this.platformId = platformId;
     }
 
     @Override
