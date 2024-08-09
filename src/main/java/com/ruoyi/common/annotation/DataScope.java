@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 /**
  * 数据权限过滤注解
- * 
+ *
  * @author ruoyi
  */
 @Target(ElementType.METHOD)
@@ -25,6 +25,11 @@ public @interface DataScope
      * 用户表的别名
      */
     public String userAlias() default "";
+
+    /**
+     * 平台表的别名
+     */
+    public String platformAlias() default "";
 
     /**
      * 权限字符（用于多个角色匹配符合要求的权限）默认根据权限注解@ss获取，多个权限用逗号分隔开来

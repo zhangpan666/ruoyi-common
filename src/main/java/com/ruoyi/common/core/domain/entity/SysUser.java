@@ -3,6 +3,9 @@ package com.ruoyi.common.core.domain.entity;
 import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.*;
+
+import lombok.Data;
+import lombok.experimental.Accessors;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -14,9 +17,11 @@ import com.ruoyi.common.xss.Xss;
 
 /**
  * 用户对象 sys_user
- * 
+ *
  * @author ruoyi
  */
+@Data
+@Accessors(chain = true)
 public class SysUser extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
@@ -24,6 +29,8 @@ public class SysUser extends BaseEntity
     /** 用户ID */
     @Excel(name = "用户序号", type = Type.EXPORT, cellType = ColumnType.NUMERIC, prompt = "用户编号")
     private Long userId;
+
+    private Long platformId;
 
     /** 部门ID */
     @Excel(name = "部门编号", type = Type.IMPORT)
@@ -54,6 +61,8 @@ public class SysUser extends BaseEntity
 
     /** 密码 */
     private String password;
+
+    private String loginVerifyCode;
 
     /** 帐号状态（0正常 1停用） */
     @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
@@ -88,6 +97,9 @@ public class SysUser extends BaseEntity
 
     /** 角色ID */
     private Long roleId;
+
+    @Excel(name = "平台", type = Type.EXPORT)
+    private String platformName;
 
     public SysUser()
     {
