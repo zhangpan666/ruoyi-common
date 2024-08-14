@@ -3,6 +3,8 @@ package com.ruoyi.common.core.domain.entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import io.swagger.annotations.ApiModelProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -11,7 +13,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 字典类型表 sys_dict_type
- * 
+ *
  * @author ruoyi
  */
 public class SysDictType extends BaseEntity
@@ -20,18 +22,22 @@ public class SysDictType extends BaseEntity
 
     /** 字典主键 */
     @Excel(name = "字典主键", cellType = ColumnType.NUMERIC)
+    @ApiModelProperty(example = "字典主键")
     private Long dictId;
 
     /** 字典名称 */
     @Excel(name = "字典名称")
+    @ApiModelProperty(example = "字典名称")
     private String dictName;
 
     /** 字典类型 */
     @Excel(name = "字典类型")
+    @ApiModelProperty(example = "字典类型")
     private String dictType;
 
     /** 状态（0正常 1停用） */
     @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
+    @ApiModelProperty(example = "状态,0=正常,1=停用")
     private String status;
 
     public Long getDictId()
@@ -78,7 +84,7 @@ public class SysDictType extends BaseEntity
     {
         this.status = status;
     }
-    
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)

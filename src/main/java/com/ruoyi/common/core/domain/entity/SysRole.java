@@ -4,6 +4,8 @@ import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import io.swagger.annotations.ApiModelProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -12,7 +14,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 角色表 sys_role
- * 
+ *
  * @author ruoyi
  */
 public class SysRole extends BaseEntity
@@ -21,18 +23,22 @@ public class SysRole extends BaseEntity
 
     /** 角色ID */
     @Excel(name = "角色序号", cellType = ColumnType.NUMERIC)
+    @ApiModelProperty(example = "角色ID")
     private Long roleId;
 
     /** 角色名称 */
     @Excel(name = "角色名称")
+    @ApiModelProperty(example = "角色名称")
     private String roleName;
 
     /** 角色权限 */
     @Excel(name = "角色权限")
+    @ApiModelProperty(example = "角色权限")
     private String roleKey;
 
     /** 角色排序 */
     @Excel(name = "角色排序")
+    @ApiModelProperty(example = "角色排序")
     private Integer roleSort;
 
     /** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限） */
@@ -47,6 +53,7 @@ public class SysRole extends BaseEntity
 
     /** 角色状态（0正常 1停用） */
     @Excel(name = "角色状态", readConverterExp = "0=正常,1=停用")
+    @ApiModelProperty(example = "角色状态，0=正常,1=停用")
     private String status;
 
     /** 删除标志（0代表存在 2代表删除） */

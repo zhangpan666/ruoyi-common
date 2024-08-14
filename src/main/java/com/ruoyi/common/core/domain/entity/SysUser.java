@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.*;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -28,8 +29,10 @@ public class SysUser extends BaseEntity
 
     /** 用户ID */
     @Excel(name = "用户序号", type = Type.EXPORT, cellType = ColumnType.NUMERIC, prompt = "用户编号")
+    @ApiModelProperty(example = "用户ID")
     private Long userId;
 
+    @ApiModelProperty(example = "平台ID")
     private Long platformId;
 
     /** 部门ID */
@@ -38,10 +41,12 @@ public class SysUser extends BaseEntity
 
     /** 用户账号 */
     @Excel(name = "登录名称")
+    @ApiModelProperty(example = "用户名")
     private String userName;
 
     /** 用户昵称 */
     @Excel(name = "用户名称")
+    @ApiModelProperty(example = "用户昵称")
     private String nickName;
 
     /** 用户邮箱 */
@@ -66,6 +71,7 @@ public class SysUser extends BaseEntity
 
     /** 帐号状态（0正常 1停用） */
     @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
+    @ApiModelProperty(example = "帐号状态，0=正常,1=停用")
     private String status;
 
     /** 删除标志（0代表存在 2代表删除） */
@@ -73,10 +79,12 @@ public class SysUser extends BaseEntity
 
     /** 最后登录IP */
     @Excel(name = "最后登录IP", type = Type.EXPORT)
+    @ApiModelProperty(example = "登录IP")
     private String loginIp;
 
     /** 最后登录时间 */
     @Excel(name = "最后登录时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
+    @ApiModelProperty(example = "登录时间")
     private Date loginDate;
 
     /** 部门对象 */
@@ -98,7 +106,8 @@ public class SysUser extends BaseEntity
     /** 角色ID */
     private Long roleId;
 
-    @Excel(name = "平台", type = Type.EXPORT)
+    @Excel(name = "平台名称", type = Type.EXPORT)
+    @ApiModelProperty(example = "平台名称")
     private String platformName;
 
     public SysUser()
