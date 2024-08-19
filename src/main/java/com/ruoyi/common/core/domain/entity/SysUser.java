@@ -36,7 +36,6 @@ public class SysUser extends BaseEntity
     private Long platformId;
 
     /** 部门ID */
-    @Excel(name = "部门编号", type = Type.IMPORT)
     private Long deptId;
 
     /** 用户账号 */
@@ -45,20 +44,17 @@ public class SysUser extends BaseEntity
     private String userName;
 
     /** 用户昵称 */
-    @Excel(name = "用户名称")
+    @Excel(name = "用户昵称")
     @ApiModelProperty(example = "用户昵称")
     private String nickName;
 
     /** 用户邮箱 */
-    @Excel(name = "用户邮箱")
     private String email;
 
     /** 手机号码 */
-    @Excel(name = "手机号码", cellType = ColumnType.TEXT)
     private String phonenumber;
 
     /** 用户性别 */
-    @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
     private String sex;
 
     /** 用户头像 */
@@ -88,10 +84,6 @@ public class SysUser extends BaseEntity
     private Date loginDate;
 
     /** 部门对象 */
-    @Excels({
-        @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
-        @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
-    })
     private SysDept dept;
 
     /** 角色对象 */
