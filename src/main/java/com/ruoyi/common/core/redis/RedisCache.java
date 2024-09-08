@@ -6,12 +6,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import com.ruoyi.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundSetOperations;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 /**
  * spring redis 工具类
@@ -117,6 +120,19 @@ public class RedisCache
     {
         return redisTemplate.delete(key);
     }
+
+
+    public boolean deleteByPattern(String pattern) {
+        if (StringUtils.isEmpty(pattern)) {
+            return false;
+        }
+        Set keys = redisTemplate.keys(pattern + "*");
+        if (CollectionUtils.isEmpty(keys)) {
+            return false;
+        }
+       return deleteObject(keys);
+    }
+
 
     /**
      * 删除集合对象
