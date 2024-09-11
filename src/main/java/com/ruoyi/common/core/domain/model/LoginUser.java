@@ -21,12 +21,10 @@ public class LoginUser implements UserDetails
      */
     private Long userId;
 
-
     /**
      * 平台ID
      */
     private Long platformId;
-
 
     /**
      * 部门ID
@@ -92,6 +90,7 @@ public class LoginUser implements UserDetails
     {
         this.userId = userId;
         this.deptId = deptId;
+        this.platformId = platformId;
         this.platformId = platformId;
         this.user = user;
         this.permissions = permissions;

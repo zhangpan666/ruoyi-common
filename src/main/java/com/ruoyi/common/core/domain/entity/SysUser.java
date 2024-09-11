@@ -32,6 +32,7 @@ public class SysUser extends BaseEntity
     @ApiModelProperty(example = "用户ID")
     private Long userId;
 
+    @Excel(name = "平台ID", type = Type.EXPORT)
     @ApiModelProperty(example = "平台ID")
     private Long platformId;
 
