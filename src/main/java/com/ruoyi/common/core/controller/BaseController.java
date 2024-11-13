@@ -56,6 +56,14 @@ public class BaseController<T>
     }
 
     /**
+     * 设置请求分页数据
+     */
+    protected void startPage(boolean count)
+    {
+        PageUtils.startPage(count);
+    }
+
+    /**
      * 设置请求排序数据
      */
     protected void startOrderBy()
